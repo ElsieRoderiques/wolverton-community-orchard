@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wolverton Community Orchard</title>
+<meta name="description" content="A community orchard in Wolverton, Milton Keynes. Come and help look after it, or just come and sit under the trees.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #E9F0EE;
+    --leaf: #2C4A39;
+    --grass: #7FA054;
+    --apple: #B3262E;
+    --blossom: #F2C4CD;
+    --bark: #3A2E28;
+    --paper: #FBFCFA;
+    --display: "Young Serif", Georgia, serif;
+    --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--body);
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--bark);
+    background: var(--paper);
+  }
+  a { color: var(--leaf); text-underline-offset: 3px; }
+  a:hover { color: var(--apple); }
+  :focus-visible { outline: 3px solid var(--apple); outline-offset: 3px; }
+
+  .wrap { max-width: 68rem; margin: 0 auto; padding: 0 1.25rem; }
+  .prose { max-width: 38rem; }
+
+  /* Header */
+  header.site {
+    background: var(--sky);
+    padding: 0.9rem 0;
+  }
+  header.site .wrap {
+    display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem;
+    align-items: baseline; justify-content: space-between;
+  }
+  .brand { font-family: var(--display); font-size: 1.15rem; color: var(--leaf); text-decoration: none; }
+  nav a { margin-right: 1.25rem; font-weight: 500; text-decoration: none; }
+  nav a:last-child { margin-right: 0; }
+  nav a:hover { text-decoration: underline; }
+
+  /* Hero */
+  .hero { background: var(--sky); padding: 2.5rem 0 0; overflow: hidden; }
+  .hero h1 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(2.4rem, 7vw, 4.75rem);
+    line-height: 1.04;
+    color: var(--leaf);
+    margin: 0 0 1rem;
+    max-width: 14ch;
+  }
+  .hero p.lede { font-size: 1.3rem; max-width: 34rem; margin: 0 0 1.5rem; }
+  .btn {
+    display: inline-block; padding: 0.8rem 1.4rem;
+    background: var(--leaf); color: #fff; font-weight: 700;
+    border-radius: 999px; text-decoration: none;
+  }
+  .btn:hover { background: var(--apple); color: #fff; }
+  .btn.quiet { background: transparent; color: var(--leaf); box-shadow: inset 0 0 0 2px var(--leaf); margin-left: 0.5rem; }
+  .btn.quiet:hover { background: var(--leaf); color: #fff; }
+
+  #orchard { display: block; width: 100%; height: auto; margin-top: 1.5rem; }
+  .tree .bloom { opacity: 0; animation: bloom 1.6s ease-out forwards; }
+  @keyframes bloom { to { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) {
+    .tree .bloom { opacity: 1; animation: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* Sections */
+  section { padding: 3.5rem 0; }
+  section + section { border-top: 1px solid #DDE6E0; }
+  h2 { font-family: var(--display); font-weight: 400; font-size: clamp(1.7rem, 4vw, 2.4rem); color: var(--leaf); margin: 0 0 1rem; line-height: 1.15; }
+  h3 { font-size: 1.1rem; margin: 0 0 0.25rem; color: var(--leaf); }
+
+  /* Through the year */
+  .year { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 2rem; margin-top: 1.5rem; }
+  .year div { border-left: 4px solid var(--grass); padding-left: 1rem; }
+  .year div:nth-child(2) { border-color: var(--blossom); }
+  .year div:nth-child(3) { border-color: #E2B93B; }
+  .year div:nth-child(4) { border-color: var(--apple); }
+  .year p { margin: 0; }
+
+  /* Get involved */
+  .involve { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 2rem; }
+  .involve p { margin: 0 0 0.75rem; }
+
+  .note {
+    background: #FFF6D6; border-left: 4px solid #E2B93B;
+    padding: 0.75rem 1rem; font-size: 0.95rem; margin: 0 0 2rem;
+  }
+
+  footer { background: var(--leaf); color: #E9F0EE; padding: 2rem 0; font-size: 0.95rem; }
+  footer a { color: #fff; }
+  footer p { margin: 0 0 0.5rem; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top">Wolverton Community Orchard</a>
+    <nav aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#year">Through the year</a>
+      <a href="#involved">Get involved</a>
+      <a href="#find">Find us</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <div class="hero">
+    <div class="wrap">
+      <h1>Fruit trees for everyone in Wolverton.</h1>
+      <p class="lede">A shared orchard, looked after by neighbours. Come and help out, pick some fruit, or just sit under the trees.</p>
+      <p>
+        <a class="btn" href="#involved">Join a session</a>
+        <a class="btn quiet" href="#find">Find the orchard</a>
+      </p>
+    </div>
+    <svg id="orchard" viewBox="0 0 1200 260" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Illustration of rows of fruit trees in blossom">
+      <rect x="0" y="190" width="1200" height="70" fill="#7FA054"/>
+      <rect x="0" y="225" width="1200" height="35" fill="#6B8F45"/>
+      <g id="trees"></g>
+    </svg>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="note" role="note"><strong>Before you publish:</strong> everything in [square brackets] is a placeholder. Replace it with your own details, then delete this box.</div>
+      <h2>About the orchard</h2>
+      <div class="prose">
+        <p>[Write two or three sentences: when the orchard was planted, who planted it, and what it is for.]</p>
+        <p>[Say what grows here: apples, pears, plums, damsons, hedgerow fruit. Say who looks after it, and that anyone in Wolverton is welcome.]</p>
+        <p>[Add a line on how the fruit is shared, for example picked together and given away, or left on the trees for anyone to take.]</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="year">
+    <div class="wrap">
+      <h2>Through the year</h2>
+      <p class="prose">An orchard has something to do in every season. Edit these to match your own calendar.</p>
+      <div class="year">
+        <div>
+          <h3>Winter</h3>
+          <p>Pruning, mending stakes and guards, mulching.</p>
+        </div>
+        <div>
+          <h3>Spring</h3>
+          <p>Blossom, planting new trees, sowing the wildflower strip.</p>
+        </div>
+        <div>
+          <h3>Summer</h3>
+          <p>Watering young trees, mowing paths, thinning fruit.</p>
+        </div>
+        <div>
+          <h3>Autumn</h3>
+          <p>Picking, sharing the harvest, [apple day or pressing event].</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="involved">
+    <div class="wrap">
+      <h2>Get involved</h2>
+      <div class="involve">
+        <div>
+          <h3>Volunteer sessions</h3>
+          <p>[Day, time and how often, for example first Saturday of the month, 10am to 12.]</p>
+          <p>No experience needed. Bring gloves if you have them; we have tools and tea.</p>
+        </div>
+        <div>
+          <h3>Tell us you are coming</h3>
+          <p>Email <a href="mailto:[your-email]">[your-email]</a> or message us on [Facebook / WhatsApp group / Instagram].</p>
+        </div>
+        <div>
+          <h3>Other ways to help</h3>
+          <p>[Adopt a tree, donate tools, water over the summer, spread the word, bring a school or community group.]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="find">
+    <div class="wrap">
+      <h2>Find us</h2>
+      <div class="prose">
+        <p>[Street name, nearest landmark, postcode, and a what3words address if you have one.]</p>
+        <p>[Access notes: gates, step-free paths, parking, nearest bus stop or station.]</p>
+        <p>[Optional: embed a map link, for example <a href="https://www.openstreetmap.org/">OpenStreetMap</a>.]</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Wolverton Community Orchard, Wolverton, Milton Keynes.</p>
+    <p>[Optional: link to the Wolverton and Greenleys Town Council, funders, or partner groups.]</p>
+  </div>
+</footer>
+
+<script>
+  // Draw three rows of trees. Each tree blossoms once on page load.
+  (function () {
+    var g = document.getElementById('trees');
+    var NS = 'http://www.w3.org/2000/svg';
+    var rows = [
+      { y: 205, scale: 0.8, count: 11, offset: 30,  fill: '#9DBF6E' },
+      { y: 225, scale: 1.0, count: 9,  offset: 70,  fill: '#6F9548' },
+      { y: 250, scale: 1.25, count: 7, offset: 110, fill: '#3F6B3F' }
+    ];
+    var blossoms = ['#F2C4CD', '#FFFFFF', '#EBA9B6'];
+    var delay = 0;
+    rows.forEach(function (r) {
+      var spacing = (1200 - r.offset * 2) / (r.count - 1);
+      for (var i = 0; i < r.count; i++) {
+        var x = r.offset + i * spacing;
+        var t = document.createElementNS(NS, 'g');
+        t.setAttribute('class', 'tree');
+        t.setAttribute('transform', 'translate(' + x + ',' + r.y + ') scale(' + r.scale + ')');
+        var trunk = document.createElementNS(NS, 'rect');
+        trunk.setAttribute('x', -5); trunk.setAttribute('y', -60);
+        trunk.setAttribute('width', 10); trunk.setAttribute('height', 60);
+        trunk.setAttribute('fill', '#3A2E28');
+        var canopy = document.createElementNS(NS, 'circle');
+        canopy.setAttribute('cx', 0); canopy.setAttribute('cy', -90); canopy.setAttribute('r', 42);
+        canopy.setAttribute('fill', r.fill);
+        t.appendChild(trunk); t.appendChild(canopy);
+        for (var b = 0; b < 7; b++) {
+          var d = document.createElementNS(NS, 'circle');
+          var a = (b * 137.5) * Math.PI / 180;
+          var rad = 8 + (b * 5) % 30;
+          d.setAttribute('class', 'bloom');
+          d.setAttribute('cx', (Math.cos(a) * rad).toFixed(1));
+          d.setAttribute('cy', (-90 + Math.sin(a) * rad).toFixed(1));
+          d.setAttribute('r', 6 + (b % 3) * 2);
+          d.setAttribute('fill', blossoms[(i + b) % 3]);
+          d.style.animationDelay = (delay % 1.4).toFixed(2) + 's';
+          delay += 0.07;
+          t.appendChild(d);
+        }
+        g.appendChild(t);
+      }
+    });
+  })();
+</script>
+</body>
+</html>
